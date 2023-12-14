@@ -16,12 +16,12 @@ with open(file='with_limitation_matrix_information.csv',mode='r') as csvfile:
     for row in reader:
         with_limitation_lists.append(row[1])
 
-for filename in tqdm(with_limitation_lists[0:4]):
+for filename in tqdm(with_limitation_lists[0:2]):
     if all_lists[filename]:
         link = all_lists[filename]
         response = requests.get(link)
         # 你可能需要从URL中提取文件名
-        file_name = 'download_matrix/'+link.split('/')[-1]
+        file_name = 'downloaded_matrixs/'+link.split('/')[-1]
         # 保存文件
         with open(file_name, 'wb') as file:
             file.write(response.content)
